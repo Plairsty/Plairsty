@@ -3,12 +3,12 @@ import { Form, TextField, PasswordField, Submit } from '@redwoodjs/forms'
 import { routes, navigate } from '@redwoodjs/router'
 
 const SignupPage = () => {
-  const { client } = useAuth()
+  const { signUp } = useAuth()
   const [error, setError] = React.useState('')
 
   const onSubmit = async (data: Record<string, string>) => {
     try {
-      const response = await client.auth.signup({
+      const response = await signUp({
         email: data.email,
         password: data.password,
       })
